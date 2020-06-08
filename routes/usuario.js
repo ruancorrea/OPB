@@ -96,28 +96,7 @@ router.post("/registro", (req, res, next) => {
                             novoUsuario.save().then(() => {
                                 //enviando email
 
-                                let transporter =  nodemailer.createTransport({
-                                    host: "smtp.gmail.com",
-                                    port: 587,
-                                    auth: {
-                                        user: "org.pbook@gmail.com",
-                                        pass: "bookrc20"
-                                    }
-                        
-                                });
-                        
-                                transporter.sendMail({
-                                    from: "OPB <org.pbook@gmail.com>",
-                                    to: novoUsuario.email,
-                                    subject: "Cadastro realizado com sucesso.",
-                                    text: "Teste",
-                                    html: "<h3>Olá, " + novoUsuario.nome + ".</h3> <p>Seja bem-vindo ao sistema de Organização de Livros Pessoais(Organization Personal Books)!</p><p>Aqui você poderia organizar seus livros, tantos os emprestados, quantos os que estão em posse, ou até mesmo os desejáveis.</p>"
-                                }).then(message =>{
-                                    console.log("\nE-mail enviado com sucesso")
-
-                                }).catch(err => {
-                                    console.log(err + "\nHouve um erro ao enviar o e-mail.")
-                                })
+                               
 
                                 req.flash("success_msg", "Usuário criado com sucesso")
                                /// res.redirect("/") ///
@@ -664,29 +643,6 @@ router.post("/livros/func/deletar", eUsuario, (req, res) => {
                     usuario.save().then(() => {
                         //enviando email
 
-                        let transporter =  nodemailer.createTransport({
-                            service: 'Gmail',
-                            host: "smtp.gmail.com",
-                            port: 587,
-                            auth: {
-                                user: "org.pbook@gmail.com",
-                                pass: "bookrc20"
-                            }
-                
-                        });
-                        console.log(novasenha) 
-                        transporter.sendMail({
-                            from: "OPB <org.pbook@gmail.com>",
-                            to: usuario.email,
-                            subject: "Recuperação de senha realizada.",
-                            text: "Nova senha",
-                            html: "<h3>Olá, " + usuario.nome + ".</h3> <p>Sua senha foi restaurada. Agora sua nova senha é: " + novasenha + "</p> <p>Pedimos que ao receber essa senha, restaure para uma que você se sinta familiarizado.</p> <p>Aqui você poderia organizar seus livros, tantos os emprestados, quantos os que estão em posse, ou até mesmo os desejáveis.</p>"
-                        }).then(message =>{
-                            console.log("\nE-mail enviado com sucesso")
-                            console.log(novasenha)
-                        }).catch(err => {
-                            console.log(err + "\nHouve um erro ao enviar o e-mail. " + err)
-                        })
 
                         req.flash("success_msg", "E-mail enviado com sucesso")
                        /// res.redirect("/") ///
@@ -704,7 +660,7 @@ router.post("/livros/func/deletar", eUsuario, (req, res) => {
             })
         }) 
     }).catch((err) =>{
-        console.log('DEU RUIM')
+        console.log(err)
     })
 })
 
