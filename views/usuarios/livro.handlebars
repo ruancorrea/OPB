@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="/css/resenhas.css">
+
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Marvel:400,700");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Marvel", sans-serif;
+}
+
+#info {
+  padding: 2rem 0;
+}
+
+.row {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.card {
+  width: 100%;
+  display: inline-block;
+  padding: 4rem 1rem 7rem 1rem;
+  background-color: teal;
+  position: relative;
+  border:0px !important;
+}
+.card:after {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  background-color: skyblue;
+  top: 0px;
+  right: 0px;
+  border-bottom: 20px solid #006767;
+  border-left: 20px solid #006767;
+  border-right: 20px solid white;
+  border-top: 20px solid white;
+  position: absolute;
+  -webkit-filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));
+}
+.card:before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-top: 40px solid #006767;
+  border-right: 40px solid #006767;
+  border-left: 40px solid white;
+  border-bottom: 40px solid white;
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  -webkit-filter: drop-shadow(7px -7px 5px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(7px -7px 5px rgba(0, 0, 0, 0.5));
+  margin-right: 10%;
+}
+.card:nth-of-type(1) {
+  margin-right: 9%;
+}
+.card h2 {
+  color: snow;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.card p {
+  color: snow;
+  font-size: 2rem;
+  line-height: 140%;
+}
+
+.ftr{
+    text-align: center;
+}
+}
+</style>
+  <header class="bannercbc">
+  <h1>Detalhes de um livro
+  </h1>
+</header>
+<div class="container">
+<div class="card mt-4">
+        <div style="color: white;" class="card-body bg-'{{livro.cor}}'">
+            <h2>{{livro.nome}}</h2>
+            <p>{{livro.autor}}</p>
+            <h5>Gênero: {{livro.genero}}</h5>
+            <h5>Tipo: {{livro.tipo}}</h5>
+            <h5>Status: {{livro.status}}</h5>
+            {{#if livro.emprestadoA}}
+            <h5>Emprestado a: {{livro.emprestadoA}}</h5><br>
+            <h5>Data de empréstimo: {{livro.datadeemprestimo}}</h5><br>
+            {{/if}}
+            <div >
+              <a href="/usuarios/livros/func/edit/{{livro._id}}" class="btn btn-success mt-3" title="Editar livro"><i class="fa fa-edit"></i></a>
+            </div><br>
+            <div>
+            <form action="/usuarios/livros/func/deletar" method="POST">
+                <input type="hidden" name="id" value="{{livro._id}}">
+                <button type="submit" style="border: none; background: rgba(255, 255, 255, 0); display: block; margin: -62px 45px">
+                  <a class="link-book btn btn-danger btn-xs" style="padding-left: 15px; padding-right: 15px;" title="Delete"> <i style="color: white;" class="fa fa-trash"></i></a>
+                </button>
+            </form><br><br>
+            </div>
+        </div>
+    </div>
+</div>

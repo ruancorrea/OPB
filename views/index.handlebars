@@ -1,0 +1,85 @@
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+
+<style>
+  .olho{
+    display: block;
+    position: absolute;
+    margin: -35px 65%;
+  }
+</style>
+
+
+  <div class="row" id="tela">
+    <div class="col-sm-12 col-md-6 text-center">
+      <div class="card mt-3 tab-card">
+        <div class="card-header tab-card-header">
+          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">Entrar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">Inscreva-se</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+            <h5 class="card-title"><i class="fa fa-lock"></i> </h5>
+              <div class="card-body">
+              <form action="/usuarios/login" method="POST">
+                  <input type="email" name="email" id="email" placeholder="E-mail" class="form-control" required>
+                  <div class="senhasenha">
+                    <input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" required>
+                    <div>
+                        <div class="olho" id="olho1"><i  class="fa fa-eye-slash"></i></div>
+                        <div class="olho" id="olho2" style="display: none;"><i class="fa fa-eye" ></i></div>
+                    </div>
+                  </div>
+                  <button class="btn btn-success mt-4" id="bl" type="submit">Entrar</button>
+              </form>
+              <div id="formFooter" class="mt-4">
+              <a class="underlineHover" href="/recuperacao" style="color: red;">Esqueceu a senha?</a>
+            </div>
+          </div>          
+          </div>
+          <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
+            <h5 class="card-title"><i class="fa fa-user"></i> </h5>
+              <div class="card-body">
+                <form action="/usuarios/registro" method="POST">
+                        <input type="text" name="nome" id="nome" placeholder="Nome " class="form-control" required>
+                        <input type="email" name="email" id="email" placeholder="E-mail" class="form-control" required>
+
+                        <input type="password" name="senha" id="senha1" placeholder="Senha" class="form-control" required>
+
+                        <div class="olho" id="olho3"><i  class="fa fa-eye-slash"></i></div>
+                        <div class="olho" id="olho4" style="display: none;"><i class="fa fa-eye" ></i></div>
+
+                        <input type="password" name="senha2" id="senha2" placeholder="Confirme a senha" class="form-control" required>
+                        
+                        <div class="olho" id="olho5"><i class="fa fa-eye-slash"></i></div>
+                        <div class="olho" id="olho6" style="display: none;"><i class="fa fa-eye" ></i></div>
+
+                    <button type="submit" id="bp" class="btn btn-success mt-4">Criar conta</button>
+                </form>
+            </div>           
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function togglePasswordView(elm){
+      elm.classList.toggle('eye-hide');
+      const input = elm.parentElement.getElementByClassName('s-input')[0]
+
+      if(input.type == 'password'){
+        input.type = 'text';
+      }else input.type = 'password'
+    }
+  </script>

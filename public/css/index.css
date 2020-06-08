@@ -1,0 +1,295 @@
+#inicial {
+    height: 130vh; 
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat; 
+    background-image: url("/img/fundo2.jpg");
+    opacity: .85;
+    margin-top: 50px;
+}
+
+#imagemInicial {
+  border-radius: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#tela, #opb, #opb2{
+    font-family: "Poppins", sans-serif;
+    justify-content: center;
+
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: rgba(134, 131, 131, 0);
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+#formFooter {
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 5%;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+  }
+
+ #bp, #bl{
+    background-color: #56baed;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 3% 5%;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #bp:hover, #bl:hover{
+    background-color: #2b92c5;
+  }
+
+  #bp:hover, #bl:hover{
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+
+  #nome, #senha, #senha1, #senha2, #email{
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 85%;
+    border: 1px solid #9b9898;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 1%;
+  }
+
+  #nome:focus, #senha:focus, #senha1:focus, #senha2:focus, #email:focus{
+    background-color: #fff;
+    border-bottom: 2px solid #5fbae9;
+  }
+
+  #nome:placeholder, #senha:placeholder, #senha1:placeholder, #senha2:placeholder, #email:placeholder{
+    color: #cccccc;
+  }
+
+  .underlineHover{
+    color: #92badd;
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  .underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #56baed;
+    content: "";
+    transition: width 0.2s;
+  }
+
+  .underlineHover:hover {
+    color: #0d0d0d;
+  }
+  
+  .underlineHover:hover:after{
+    width: 100%;
+  }
+
+
+
+
+
+  /*
+  
+      CORPO 
+          DOS
+            HTML
+  
+  */
+
+#wrapper {
+    width: 100%;
+    margin: 0 auto; 
+}
+
+#cabecalho{
+    margin-top: -50px;
+    width: 100%;
+    height: 150px;
+    background-color: #0683c9;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    -ms-transition: height 0.3s;
+    -o-transition: height 0.3s;
+    transition: height 0.3s;
+    position: fixed;
+}
+
+#cabecalho h1#logo {
+  height: 150px;
+  line-height: 150px;
+  font-family: "Oswald", sans-serif;
+  font-size: 60px;
+  color: white;
+  font-weight: 400;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; 
+}
+
+header.smaller {
+  height: 75px; }
+
+header.smaller h1#logo {
+    width: 150px;
+    height: 75px;
+    line-height: 75px;
+    font-size: 30px; }
+header.smaller nav a {
+    line-height: 75px; }
+
+.imagens{
+  padding: 5px;
+  border-radius: 100px;
+  width: 40%;
+  height: 40%;
+  border: 1px solid #4b484885;
+}
+
+.bannercbc{
+  height: 50px;
+  background: #004a7b !important;
+}
+
+.bannercbc h1{
+  color: white;
+  padding-left: 10%;
+  margin-bottom: 100px;
+}
+
+
+.voltar-ao-topo {
+  position: fixed;
+  bottom: 20px;
+  right: 2em;
+  text-decoration: none;
+  color: black;
+  background-color: rgba(0, 0, 0, 0.144);
+  font-size: 30px;
+  padding: 10px;
+  display: none;
+}
+.voltar-ao-topo:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+
+
+/* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    background: #004a7b !important;
+}
+#footer h5{
+	padding-left: 10px;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+#footer ul.social li a:hover{
+	color:#eeeeee;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+}

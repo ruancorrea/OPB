@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<header class="bannercbc">
+  <h1>Pagina inicial
+  </h1>
+</header>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8" style="padding: 0 10px;">
+      <div id='imgs' class="col-md-12 col-sm-12 mt-2">
+        <a title="Livros" href="/usuarios/livros/1" ><img class="imagens" src="/img/05.png" alt=""></a>
+        <a title="Adicionar livro" href="/usuarios/livros/func/add"><img class="imagens" src="/img/add.png" alt=""></a>
+        <a title="Livros em posse" href="/usuarios/livros/status/Em posse"><img class="imagens" src="/img/house.png" alt=""></a>
+        <a title="Livros emprestados" href="/usuarios/livros/status/Emprestado"><img class="imagens" src="/img/calendar.png" alt=""></a>
+        <a title="Livros desejáveis" href="/usuarios/livros/status/Desejável"><img class="imagens" src="/img/fav.png" alt=""></a>
+        <a title="Ajustes" href="/usuarios/ajustes"><img class="imagens" src="/img/config.png" alt=""></a>
+      </div>
+    </div>
+      <div class="col-md-4 mt-2">
+          <div class="col-md-12 mt-2" style="max-width: 30rem;">
+                <!-- Begin fluid width widget -->
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <span class="glyphicon glyphicon-list-alt"><i class="fa fa-list-alt"></i></span>  Livros recentes
+                        </h3>
+                        <a style="color: red; float: right;" href="/usuarios/livros"><small>Mais livros »</small></a>
+                    </div>
+                    <div class="panel-body mt-4">
+                        <ul class="media-list">
+                          {{#each livro}}
+                            <li class="media">
+                                <div class="media-body">
+                                    <h4 class="media-heading">
+                                        <a href="/usuarios/livros/func/{{_id}}" class="text-info">
+                                            {{nome}}
+                                        </a>
+                                    </h4>
+                                    <small id="date-{{_id}}" class="margin-top-10 margin-bottom-20"></small>
+                                    <script>
+                                      document.querySelector('#date-{{_id}}').innerHTML = new Date('{{data}}').toLocaleDateString();
+                                    </script>
+                                    <p class="margin-top-10 margin-bottom-20">
+                                        {{autor}}
+                                    </p>
+                                </div>
+                            </li>
+                          {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <!-- End fluid width widget -->
+                
+            </div>
+      </div>
+    </div>
+</div>

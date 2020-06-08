@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="/css/livros.css">
+
+<header class="bannercbc">
+  <h1>Livros
+  </h1>
+</header>
+
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a title="All" style="color: red;" class="nav-link active" href="/usuarios/livros/1"><i class="fa fa-book"></i></a>
+  </li>
+  <li class="nav-item">
+    <a title="Add a Book" style="color: red;" class="nav-link active" href="/usuarios/livros/func/add"><i class="fa fa-plus"></i></a>
+  </li>
+  <li class="nav-item">
+    <a title="In Possession" style="color: red;" class="nav-link" href="/usuarios/livros/status/Em posse"><i class="fa fa-home"></i></a>
+  </li>
+  <li class="nav-item ">
+    <a title="Borrowed" style="color: red;" class="nav-link" href="/usuarios/livros/status/Emprestado"><i class="fa fa-archive"></i></a>
+  </li>
+  <li class="nav-item">
+    <a title="Desirable" style="color: red;" class="nav-link" href="/usuarios/livros/status/Desejável"><i class="fa fa-bookmark"></i></a>
+  </li>
+</ul>
+
+{{>_msg}}
+
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+
+
+<div class="container">
+    <div class="row">
+    {{#each livros}}
+    	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+			<div class="offer offer-{{cor}}">
+				<div class="shape">
+					<div class="shape-text">
+						<a href="/usuarios/livros/func/{{_id}}"><span class="fa fa-eye"></span></a>							
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">
+					<label class="label label-{{cor}}"></label><a style="color: black; font: bold 15pt Arial;" href="/usuarios/livros/func/{{_id}}">{{nome}}</a></label>
+					</h3>
+                    <small id="date-{{_id}}" class="margin-top-10 margin-bottom-20"></small>
+                        <script>
+                        document.querySelector('#date-{{_id}}').innerHTML = new Date('{{data}}').toLocaleDateString();
+                        </script>
+						<p>
+              <small>Autor: {{autor}}</small><br> 
+              <small>Status: {{status}}</small>
+              <div class="action">
+
+                  <a class="link-book btn btn-success btn-xs" title="Edit" href="/usuarios/livros/func/edit/{{_id}}"><i class="fa fa-edit"></i></a>
+                
+                        
+                  <form action="/usuarios/livros/func/deletar" method="POST">
+                      <input type="hidden" name="id" value="{{_id}}">
+                      <button type="submit" style="border: none; background: white; display: block; margin: -39px 42.5px">
+                          <a class="link-book btn btn-danger btn-xs" style="padding-left: 15px; padding-right: 15px;" title="Delete"> <i style="color: white;" class="fa fa-trash"></i></a>
+                      </button>
+                  </form>
+                  <br><br>
+              </div>
+					</p>
+				</div>
+			</div>
+		</div>
+        
+        {{else}}
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h2 class="display-5">Não há nenhum livro nesta lista.</h2>
+            <p class="lead">Que tal adicionarmos o primeiro?</p>
+            <p><a style="color: blue;" href="/usuarios/livros/func/add">Adicionar livro</a></p>
+            <br><br><br><br><br><br>
+          </div>
+        </div>
+        {{/each}}
+        </div>
+</div>
+
+{{#if_equals array.length 1}}
+{{else}}
+<nav aria-label="..." class="mt-4">
+  <ul class="pagination justify-content-center">
+    {{#each array}}
+    <li class="page-item"><a class="page-link bg-dark" id='b{{this}}' style="color: white;" href="/usuarios/livros{{rota}}/{{this}}">{{this}}</a></li>
+    {{/each}}
+  </ul>
+</nav>
+{{/if_equals}}

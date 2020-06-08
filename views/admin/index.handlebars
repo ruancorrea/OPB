@@ -1,0 +1,112 @@
+<header class="bannercbc">
+  <h1>Painel Administrador
+  </h1>
+</header>
+
+<link rel="stylesheet" href="/css/adm.css">
+
+<div class="row dashboard-stats">
+    <div class="col-md-3 col-sm-6">
+        <section class="panel panel-box">
+            <div class="panel-left panel-icon bg-success">
+                <i class="fa fa-font text-large stat-icon success-text"></i>
+            </div>
+            <div class="panel-right panel-icon bg-reverse">
+                <p class="size-h1 no-margin countdown_first">{{generos.length}}</p>
+                <p class="text-muted no-margin text"><span>Genres</span></p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <section class="panel panel-box">
+            <div class="panel-left panel-icon bg-danger">
+                <i class="fa fa-book text-large stat-icon danger-text"></i>
+            </div>
+            <div class="panel-right panel-icon bg-reverse">
+                <p class="size-h1 no-margin countdown_second">{{livros.length}}</p>
+                <p class="text-muted no-margin text"><span>Books</span></p>
+            </div>
+        </section>
+        
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+        <section class="panel panel-box">
+            <div class="panel-left panel-icon bg-info">
+                <i class="fa fa-users text-large stat-icon info-text"></i>
+            </div>
+            <div class="panel-right panel-icon bg-reverse">
+                <p class="size-h1 no-margin countdown_fourth">{{usuarios.length}}</p>
+                <p class="text-muted no-margin text"><span>Users</span></p>
+            </div>
+        </section>
+    </div>    
+</div> 
+
+
+<script>
+ $(function() {
+   
+	function countUp(count) {
+		var div_by = 100,
+			speed = Math.round(count / div_by),
+			$display = $('.countdown_first'),
+			run_count = 1,
+			int_speed = 24;
+		var int = setInterval(function () {
+			if (run_count < div_by) {
+				$display.text(speed * run_count);
+				run_count++;
+			} else if (parseInt($display.text()) < count) {
+				var curr_count = parseInt($display.text()) + 1;
+				$display.text(curr_count);
+			} else {
+				clearInterval(int);
+			}
+		}, int_speed);
+	}
+	countUp($('.countdown_first').text());
+
+function countUp2(count) {
+    var div_by = 100,
+        speed = Math.round(count / div_by),
+        $display = $('.countdown_second'),
+        run_count = 1,
+        int_speed = 24;
+    var int = setInterval(function () {
+        if (run_count < div_by) {
+            $display.text(speed * run_count);
+            run_count++;
+        } else if (parseInt($display.text()) < count) {
+            var curr_count = parseInt($display.text()) + 1;
+            $display.text(curr_count);
+        } else {
+            clearInterval(int);
+        }
+    }, int_speed);
+}
+countUp2($('.countdown_second').text());
+
+function countUp3(count) {
+    var div_by = 100,
+        speed = Math.round(count / div_by),
+        $display = $('.countdown_fourth'),
+        run_count = 1,
+        int_speed = 24;
+    var int = setInterval(function () {
+        if (run_count < div_by) {
+            $display.text(speed * run_count);
+            run_count++;
+        } else if (parseInt($display.text()) < count) {
+            var curr_count = parseInt($display.text()) + 1;
+            $display.text(curr_count);
+        } else {
+            clearInterval(int);
+        }
+    }, int_speed);
+}
+countUp3($('.countdown_fourth').text());
+		   
+		   });
+
+</script>

@@ -1,0 +1,117 @@
+<header class="bannercbc">
+  <h1>Editando livro
+  </h1>
+</header>
+
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+{{>_msg}}
+
+<div class="container">    
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="card card-header">
+            <div class="card-title">
+                <h4><strong>Informações do livro</strong></h4>
+            </div>
+        </div>                    
+        <div class="card card-info" >   
+            <div style="padding-top:30px" class="card-body" >
+                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                <form action="/usuarios/livros/func/edit" method="POST" id="loginform" class="form-horizontal" role="form"> 
+                    <input type="hidden" name='id' value="{{livro._id}}">
+                    <div style="margin-bottom: 25px" class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-book"></i></span>
+                        <input id="name" type="text" class="form-control" name="nome" required value="{{livro.nome}}" placeholder="name">                                        
+                    </div>
+
+                        <div style="margin-bottom: 25px" class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                        <input type="text" class="form-control" id="autor" name="autor" required value="{{livro.autor}}" placeholder="author">                                        
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-quote-left"></i></span>
+                        
+                        <select name="genero" id="genero" required class="custom-select">
+                            <option value="{{livro.genero}}" selected disabled>{{livro.genero}}</option>
+                            <option value="Narrativo">Narrativo</option>
+                            <option value="Lírico">Lírico</option>
+                            <option value="Dramático">Dramático</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 25px" class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-font"></i></span>
+                        <select name="tipo" id="tipo" required class="custom-select">
+                            <option value="{{livro.tipo}}" selected disabled>{{livro.tipo}}</option>
+                        {{#each genero}}
+                            <option class="{{tipo}}" value="{{nome}}">{{nome}}</option>
+                        {{/each}}
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-sticky-note"></i></span>
+                        <select name="status" id="status" class="custom-select">
+                            <option value="{{livro.status}}" selected disabled>{{livro.status}}</option>
+                            <option value="Em posse">Em posse</option>
+                            <option value="Emprestado">Emprestado</option>
+                            <option value="Desejável">Desejável</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 25px" class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-paper-plane"></i></span>
+                        {{#if livro.emprestadoA}}
+                            <input type="text" class="form-control" disabled id="emprestadoA" name="emprestadoA" value="{{livro.emprestadoA}}" placeholder="borrowed from">                                        
+                        {{else}}
+                            <input type="text" class="form-control" disabled id="emprestadoA" name="emprestadoA" value="" placeholder="emprestado a quem?">                                        
+                        {{/if}}
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                        {{#if livro.emprestadoA}}
+                            <input type="date" id="datadeemprestimo" disabled name="datadeemprestimo" value="{{liveo.data}}" class="form-control">
+                        {{else}}
+                            <input type="date" id="datadeemprestimo" disabled name="datadeemprestimo" class="form-control">
+                        {{/if}}
+                    </div>
+
+                        <div style="margin-top:10px" class="form-group">
+                            <!-- Button -->
+
+                            <div class="col-sm-12 controls">
+                                <button class="btn btn-outline-success" type="submit" style="display: block; float: right;">Adicionar</button>
+                            </div>
+                        </div>   
+                    </form>     
+                </div>                     
+            </div>  
+    </div>
+</div>
+
+<script>
+        $(document).ready(function() {
+            $('#tipo').prop('disabled', true)
+            $('#status').change(function(){
+                var tipo = $("#status option:selected").text();
+                if(tipo == 'Emprestado'){
+                    $('#emprestadoA').prop('disabled', false);
+                    $('#datadeemprestimo').prop('disabled', false);
+                }else{
+                    $('#emprestadoA').prop('disabled', true);
+                    $('#datadeemprestimo').prop('disabled', true);
+                }
+
+            })
+            $('#genero').change(function(){
+                $('#tipo').prop('disabled', false)
+                //var tipo = $("#tipo option.Narrativo").text();
+                var tipo = $(this).val()
+                $("#tipo option").css('display','none')
+                $('#tipo option.' + $(this).val()).css('display','inherit')
+            })
+        })
+    </script>

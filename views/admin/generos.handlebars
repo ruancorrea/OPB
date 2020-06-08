@@ -1,0 +1,109 @@
+<style>
+    #icons {
+        color: white;
+        float: right;
+    }
+</style>
+
+<header class="bannercbc">
+  <h1>Gêneros
+  </h1>
+</header>
+
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+
+<div class="row">
+    <div class="col-md-8" style="padding: 0 10px;">
+      {{#each generos}}
+    <div class="col-md-12 mt-2">
+      <div class="card">
+        <div class="card-header bg-secondary">
+          <h3 class="card-title">{{nome}}
+			<span class="pull-right clickable"><i id='icons' class="fa fa-chevron-down"></i></span></h3>
+        </div>
+        <div class="card-body">
+          <small id="date-{{_id}}" class="margin-top-10 margin-bottom-20"></small>
+          <script>
+            document.querySelector('#date-{{_id}}').innerHTML = "Data: " new Date('{{data}}').toLocaleDateString();
+          </script>
+          <p>Slug: {{slug}}</p>
+          <p>Tipo: {{tipo}}</p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    </div>
+    <div class="col-md-12">
+        <div id="loginbox" style="margin-top:50px;">
+        <div class="card card-header">
+            <div class="card-title">
+                <h4><strong>Adicionando gênero</strong></h4>
+            </div> 
+        </div>                    
+        <div class="card card-info" >   
+
+                <div style="padding-top:30px" class="card-body" >
+
+                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                        
+                    <form action="/admin/generos/nova" method="POST" id="loginform" class="form-horizontal" role="form">
+                                
+                        <div style="margin-bottom: 25px" class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-font"></i></span>
+                            <input id="name" type="text" class="form-control" name="nome" required value="" placeholder="nome">                                        
+                        </div>
+
+                            <div style="margin-bottom: 25px" class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-bullseye"></i></span>
+                            <input type="text" class="form-control" id="slug" name="slug" required value="" placeholder="slug">                                        
+                        </div>
+
+                        <div style="margin-bottom: 25px" class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-quote-left"></i></span>
+                            <select name="genero" id="genero" required class="custom-select">
+                                <option value="Narrativo">Narrativo</option>
+                                <option value="Lírico">Lírico</option>
+                                <option value="Dramático">Dramático</option>
+                            </select>
+                        </div>
+
+                            <div style="margin-top:10px" class="form-group">
+                                <!-- Button -->
+
+                                <div class="col-sm-12 controls">
+                                    <button class="btn btn-outline-success" style="display: block; float: right;" type="submit">Confirm</button>
+                                </div>
+                            </div>   
+                        </form>     
+
+                    </div>                     
+                </div>  
+    </div>
+    </div>
+</div>
+
+
+  <script>
+    $(document).on('click', '.card-header span.clickable', function(e){
+        var $this = $(this);
+      if(!$this.hasClass('card-collapsed')) {
+        $this.parents('.card').find('.card-body').slideUp();
+        $this.addClass('card-collapsed');
+        $this.find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        
+      } else {
+        $this.parents('.card').find('.card-body').slideDown();
+        $this.removeClass('card-collapsed');
+        $this.find('i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        
+      }
+    })
+    $(document).ready(function(){
+      $('.card-header span.clickable').click()
+      $('.card div.clickable').click()
+    })
+
+  </script>        

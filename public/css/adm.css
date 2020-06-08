@@ -1,0 +1,100 @@
+.panel-box {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: medium none;
+}
+	
+.panel-box .panel-icon {
+    display: table-cell;
+    padding: 29px;
+    width: 1%;
+    vertical-align: top;
+    border-radius: 0px;
+    text-align: center;
+	border-bottom: 1px solid #fcfcfc;
+	border-top: 1px solid #fcfcfc;
+	border-right: 1px solid #fcfcfc;
+}
+	
+	.dashboard-stats .stat-icon {
+    line-height: 65px;
+}
+	
+
+	.bg-success {
+    background-color: #A3C86D !important;
+    color: #FFF !important;
+}
+	
+	.success-text {
+    color: #82b33a;
+}
+	
+	.bg-danger {
+    background-color: #FF7857 !important;
+    color: #FFF !important;
+}
+	
+	.danger-text {
+    color: #d15b3d;
+}
+	
+	
+	.bg-lovender {
+    background-color: #8075C4 !important;
+    color: #FFF !important;
+}
+	
+	
+	.lovender-text {
+    color: #6a5fb1;
+}
+	
+	
+
+	.bg-info {
+    background-color: #7ACBEE !important;
+    color: #FFF !important;
+}
+	
+	.info-text {
+    color: #3ca0cb;
+}
+	
+	
+	
+	
+	.size-h1 {
+    font-size: 20px;
+}
+	
+	.panel-icon p.text {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+	
+	
+	
+    .panel-icon i {
+    text-align: center;
+}
+	
+	
+    .panel-icon i {
+    text-align: center;
+}
+	
+	
+    .text-large {
+    font-size: 50px;
+}
+
+
+    .text-large {
+    font-size: 50px;
+}
+	
